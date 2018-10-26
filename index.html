@@ -385,9 +385,10 @@
       
         
           
-            <p>[TOC]</p>
-<h1 id="Hexo–Linux搭建"><a href="#Hexo–Linux搭建" class="headerlink" title="Hexo–Linux搭建"></a>Hexo–Linux搭建</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>2018-10-26刚用hexo建成的blog,先来一篇博文,希望能坚持做笔记吧.
-</code></pre><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
+            <p><link rel="stylesheet" href="css/style.css" media="screen" type="text/css"></p>
+<p><style><br>    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css"><br></style><br>[TOC]</p>
+<h1 id="Hexo–Linux搭建"><a href="#Hexo–Linux搭建" class="headerlink" title="Hexo–Linux搭建"></a>Hexo–Linux搭建</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><pre><code>2018-10-26刚用hexo建成的blog,先来一篇博文,希望能坚持做笔记吧.
+</code></pre><h2 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2. 准备工作"></a>2. 准备工作</h2><blockquote>
 <h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h3><blockquote>
 <p>linux下 git 安装 1.使用yum安装 yum -y install git </p>
 </blockquote>
@@ -411,20 +412,10 @@
 </ol>
 </blockquote>
 </blockquote>
-<h1 id="生成SSH秘钥-并添加Github"><a href="#生成SSH秘钥-并添加Github" class="headerlink" title="生成SSH秘钥,并添加Github"></a>生成SSH秘钥,并添加Github</h1><p>创建一个repo，名称为yourname.github.io, 其中yourname是你的github名称，按照这个规则创建才有用哦，如下：<br>new-repo<br>new-repo<br><img src="/img/new-repo.png" alt="Alt text"><br>create-repo<br>create-repo</p>
-<p>回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：</p>
-<p>username<br>username</p>
-<p>email<br>email</p>
-<p>创建SSH</p>
-<p>在gitbash中输入：ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>，生成ssh。然后按下图的方式找到id_rsa.pub文件的内容。</p>
-<p>ssh-key<br>ssh-key</p>
-<p>将上面获取的ssh放到github中：</p>
-<p>settings<br>settings</p>
-<p>ssh-key<br>ssh-key</p>
-<p>添加一个 New SSH key ，title随便取，key就填刚刚那一段。</p>
-<p>在gitbash中验证是否添加成功：ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
-<p>完成下一步你就成功啦！</p>
+<h2 id="3-生成SSH秘钥-并添加Github"><a href="#3-生成SSH秘钥-并添加Github" class="headerlink" title="3. 生成SSH秘钥,并添加Github"></a>3. 生成SSH秘钥,并添加Github</h2><!--字体设置-->
+<font face="黑体" color="gray" size="4"><br>创建一个repo，名称为<code>yourname.github.io</code>, 其中yourname是你的github名称，按照这个规则创建才有用哦，如下：<br><img src="/img/new-repo.png" alt="new-repo"><br><img src="/img/create-repo.png" alt="create-repo"><br><br>回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：<br><img src="/img/username.png" alt="username"><br><img src="/img/email.png" alt="email-repo"><br><br>创建SSH<br><br>在gitbash中输入：<code>ssh-keygen -t rsa -C &quot;youremail@example.com</code>，生成ssh。然后按下图的方式找到<code>id_rsa.pub</code>文件的内容。<br><br><img src="/img/ssh.png" alt="ssh"><br><br>将上面获取的ssh放到github中：<br><br><img src="/img/settings.png" alt="settings"><br><br><img src="/img/ssh-key.pgn" alt="ssh-key"><br><br>添加一个 <code>New SSH key</code> ，title随便取，key就填刚刚那一段。<br><br>在gitbash中验证是否添加成功：<code>ssh -T git@github.com</code><br><br>完成下一步你就成功啦！<br></font>
 
+<h2 id="4-部署项目"><a href="#4-部署项目" class="headerlink" title="4. 部署项目"></a>4. 部署项目</h2><font face="黑体" color="gray" size="4"><br>用编辑器打开你的blog项目，修改_config.yml文件的一些配置(冒号之后都是有一个半角空格的)：<br><br><table><br>    <tr><br>        <td bgcolor="#00000"><br>            <ol><br>                <li><br>                    <font size="4" color="#B0E0E6" face="DejaVu Sans Mono"><br>                        deploy:<br>                    </font><br>                </li><br>                <li><br>                    <font size="4" color="#B0E0E6" face="DejaVu Sans Mono"><br>                        &amp;nbsp &amp;nbsp type: git<br>                    </font><br>                </li><br>                <li><br>                    <font size="4" color="#B0E0E6" face="DejaVu Sans Mono"><br>                        &amp;nbsp&amp;nbsp&amp;nbsp repo: <a href="https://github.com/YourgithubName/YourgithubName.github.io.git" target="_blank" rel="noopener">https://github.com/YourgithubName/YourgithubName.github.io.git</a><br>                    </font><br>                </li><br>                <li><br>                    <font size="4" color="#B0E0E6" face="DejaVu Sans Mono"><br>                        &amp;nbsp &amp;nbsp branch: master                    </font><br>                </li><br>            <ol><br>        </ol></ol></td><br>    </tr><br></table><br>回到gitbash中，进入你的blog目录，分别执行以下命令：<br><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></tbody></table></figure><br></font>
           
         
       
