@@ -334,6 +334,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -362,9 +384,38 @@
 
       
         
-          
-            
-          
+          <h1 id="Shiro-JWT-Spring-Boot-Restful简易教程"><a href="#Shiro-JWT-Spring-Boot-Restful简易教程" class="headerlink" title="Shiro+JWT+Spring Boot Restful简易教程"></a>Shiro+JWT+Spring Boot Restful简易教程</h1><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><pre><code>* 完全使用了Shiro的注解配置，保持高度的灵活性。
+* 放弃Cookie,Session,使用JWT进行鉴权，完全实现无状态鉴权。
+* JWT密钥支持过期时间。
+* 对跨域提供支持
+</code></pre><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在开始本教程之前，请保证已经熟悉以下几点。</p>
+<pre><code>* Spring Boot 基本语法，至少要懂得Controller、RestController、Autowired等这些基本注释。其实看看官方的Getting-Start教程就差不多了。
+*   JWT （Json Web Token）的基本概念，并且会简单操作JWT的 JAVA SDK。
+*   Shiro的基本操作，看下官方的 10 Minute Tutorial 即可。
+*   模拟HTTP请求工具，我使用的是PostMan。
+</code></pre><p>简要的说明下我们为什么要用JWT，因为我们要实现完全的前后端分离，所以不可能使用session，cookie的方式进行鉴权，所以JWT就被派上了用场，你可以通过一个加密密钥来进行前后端的鉴权。</p>
+<h2 id="程序逻辑"><a href="#程序逻辑" class="headerlink" title="程序逻辑"></a>程序逻辑</h2><ol>
+<li>我们POST用户名与密码到/login进行登入，如果成功返回一个加密token，失败的话直接返回401错误。</li>
+<li>之后用户访问每一个需要权限的网址请求必须在header中添加Authorization字段，例如Authorization: token，token为密钥。</li>
+<li>后台会进行token的校验，如果有误会直接返回401。</li>
+</ol>
+<h2 id="Token加密说明"><a href="#Token加密说明" class="headerlink" title="Token加密说明"></a>Token加密说明</h2><ul>
+<li>携带了username信息在token中。</li>
+<li>设定了过期时间。</li>
+<li>使用用户登入密码对token进行加密。</li>
+</ul>
+<h2 id="Token校验流程"><a href="#Token校验流程" class="headerlink" title="Token校验流程"></a>Token校验流程</h2><ol>
+<li>获得token中携带的username信息。</li>
+<li>进入数据库搜索这个用户，得到他的密码。</li>
+<li>使用用户的密码来检验token是否正确。</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/Spring-boot-jwt-shiro/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -617,7 +668,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -628,7 +679,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
